@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clínica Dental Leiva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #0077cc, #00bcd4);
+            color: white;
+            padding: 30px 20px;
+        }
+		
+		.logo-hero {
+			max-width: 250px;      /* antes 150px → ahora más pequeño */
+			height: auto;
+			width: 120%;
+		}
+
+        .servicio {
+            transition: 0.3s;
+        }
+        .servicio:hover {
+            transform: translateY(-5px);
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+        }
+		
+		.video-clinica {
+			border-radius: 12px;      /* esquinas redondeadas */
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* sombra suave */
+			max-height: 400px;        /* alto máximo */
+			object-fit: cover;        /* recorta sin deformar */
+		}
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <!-- LOGO A LA IZQUIERDA -->
+            <div class="col-md-3 text-center text-md-start mb-3 mb-md-0">
+                <img src="{{ url_for('static', filename='logo.png') }}" 
+                     alt="Logo Clínica Dental Sonrisa Perfecta" 
+                     class="logo-hero">
+            </div>
+
+            <!-- TEXTO A LA DERECHA -->
+            <div class="col-md-9 text-center text-md-start">
+                <h1>Bienvenido a Clínica Dental de la Sonrisa Perfecta</h1>
+                <p class="lead mt-3">
+                    Cuidamos tu sonrisa con tecnología avanzada y atención personalizada.
+                </p>
+                <a href="#contacto" class="btn btn-light btn-lg mt-3">Solicitar Cita</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="container mt-5">
+    <div class="row align-items-center g-4">
+        
+        <!-- VIDEO A LA IZQUIERDA -->
+        <div class="col-md-6">
+            <video class="video-clinica w-100" controls muted playsinline>
+                <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+
+        <!-- TEXTO A LA DERECHA -->
+        <div class="col-md-6">
+            <div class="mb-4">
+                <h3>✅ Experiencia</h3>
+                <p>Más de 15 años cuidando sonrisas.</p>
+            </div>
+            <div class="mb-4">
+                <h3>✅ Tecnología</h3>
+                <p>Equipamiento digital de última generación.</p>
+            </div>
+            <div class="mb-4">
+                <h3>✅ Atención</h3>
+                <p>Trato cercano y personalizado.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="container mt-5">
+	<h2 class="text-center mb-4"><strong>Nuestros Servicios</strong></h2>
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <div class="card servicio">
+                <div class="card-body text-center">
+                    <h4><strong>Implantes</strong></h4>
+                    <p>Rehabilitación completa.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card servicio">
+                <div class="card-body text-center">
+                    <h4><strong>Ortodoncia</strong></h4>
+                    <p>Brackets y alineadores.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card servicio">
+                <div class="card-body text-center">
+                    <h4><strong>Blanqueamiento</strong></h4>
+                    <p>Sonrisa más brillante.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card servicio">
+                <div class="card-body text-center">
+                    <h4><strong>Odontopediatría</strong></h4>
+                    <p>Cuidado dental infantil.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="container mt-5 mb-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            Solicitar Información
+        </div>
+        <div class="card-body">
+            <form method="post" action="/contacto">
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Teléfono</label>
+                    <input type="text" name="telefono" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <button class="btn btn-primary">Solicitar Cita</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center">
+    <h5>Clínica Dental Leyva</h5>
+    <p>Av. Familia de Betancourt y Molina, 21, 38400 Puerto de la Cruz, Santa Cruz de Tenerife</p>
+    <p>Teléfono: 922 373 104</p>
+</footer>
+
+</body>
+</html>
